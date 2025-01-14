@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Calculator {
+    // Method to perform calculations
+    public static String calculate(char op, double x, double y) {
+        switch (op) {
+            case '+':
+                return String.valueOf(x + y);
+            case '-':
+                return String.valueOf(x - y);
+            case '*':
+                return String.valueOf(x * y);
+            case '/':
+                return y != 0 ? String.valueOf(x / y) : "Error: Division by zero";
+            default:
+                return "Invalid operation";
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input operation
+        System.out.print("Enter operation (+, -, *, /): ");
+        char operation = scanner.next().charAt(0);
+
+        // Input numbers
+        System.out.print("Enter first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter second number: ");
+        double num2 = scanner.nextDouble();
+
+        // Perform calculation and display result
+        String result = calculate(operation, num1, num2);
+        System.out.println("Result: " + result);
+    }
+}
